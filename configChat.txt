@@ -1,0 +1,70 @@
+# 下载deepseek模型：
+sudo apt update
+sudo apt install git-lfs
+git lfs install
+git clone https://www.modelscope.cn/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B.git
+git clone https://www.modelscope.cn/BAAI/bge-base-zh-v1.5.git
+
+# 创建新环境
+conda create -n aiBot python=3.11 -y
+conda activate aiBot
+
+# 下载依赖，有些是用conda，有些是用pip
+conda install -c conda-forge faiss-cpu pypdf uvicorn python-multipart -y
+pip install fastapi langchain sentence-transformers openai-whisper langchain_community edge_tts pydub soundfile
+
+安装ffmpeg
+sudo apt update
+sudo apt install ffmpeg
+
+回声消除：
+# 安装编译依赖
+sudo apt-get update
+sudo apt-get install -y cmake ninja-build libpulse-dev
+
+# 克隆并编译WebRTC音频处理库
+git clone https://github.com/aiortc/aiortc.git
+cd aiortc/third_party/webrtc
+mkdir build && cd build
+cmake -G Ninja -DCMAKE_BUILD_TYPE=Release ..
+ninja
+sudo ninja install
+
+# 安装Python绑定
+pip install webrtc-noise-gain
+
+
+# 使用autodl-ssh-tool进行反向代理，这样就能访问到服务器
+在本地使用：http://127.0.0.1:6006访问服务器
+在服务器使用：http://127.0.0.1:1080访问本地
+
+
+创建并激活环境：
+D:\programData\python310\python.exe -m venv D:\envs\venv310
+D:\envs\deepseek-chat\Scripts\activate 
+
+安装必要的依赖：
+使用pip命令：
+D:\envs\deepseek-chat\Scripts\python.exe -m pip
+
+pip install torch transformers accelerate
+pip install fastapi uvicorn
+
+运行前端：
+D:\envs\deepseek-chat\Scripts\uvicorn chat_api:app --host 127.0.0.1 --port 8888
+
+
+安装Whisper做语音识别
+D:\envs\deepseek-chat\Scripts\python.exe -m pip install -U openai-whisper
+
+安装依赖ffmpeg，在官网上下载压缩包，添加环境变量就好了
+ffmpeg -version
+这两个处理音频的依赖也要安装：
+pip install pydub librosa
+
+
+安装依赖（上传知识库）：
+pip install fastapi uvicorn langchain faiss-cpu sentence-transformers pypdf python-multipart
+
+
+ssh -p 2694 root@i-1.gpushare.com
